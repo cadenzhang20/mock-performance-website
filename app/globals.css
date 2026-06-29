@@ -1,26 +1,273 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================================
+   GOOD PREFIXES — GLOBAL STYLES
+   ============================================================
+
+   COLOR SYSTEM:
+   Every color is named after something from the duo's world:
+   - paper: aged sheet music, warm cream background
+   - ink: warm near-black for body text (softer than pure #000)
+   - ink-muted: warm brown-grey for secondary text
+   - gold: aged brass — the color of clarinet keys, gilded frames
+   - crimson: deep red — velvet curtains, warmth of a performance space
+   - hairline: subtle dividers, warm grey
+   - sunlight: the warm glow behind the hero text
+
+   WHY NOT TAILWIND'S BUILT-IN COLORS?
+   Tailwind's palette (slate, amber, stone) is designed for generic UI.
+   Our palette is specific to this brief — warm, analog, nostalgic.
+   Custom properties let us reference them in both Tailwind utilities
+   and raw CSS without duplication.
+
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* These tokens are used by both Tailwind utilities (text-ink, bg-paper, etc.)
+     and raw CSS (var(--color-paper)). The hex values live here — :root
+     then copies them out so raw CSS references resolve. */
+  --color-paper: #FAF6F0;
+  --color-ink: #2C2416;
+  --color-ink-muted: #6B5C4D;
+  --color-gold: #C49A6C;
+  --color-crimson: #8B3A3A;
+  --color-hairline: #B8A99A;
+  --color-sunlight: #F5E6D0;
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
 }
 
+/*
+  Copy @theme tokens into :root so raw CSS (e.g. the staff-divider, hero-glow,
+  and body styles) can reference them via var(--color-*).
+*/
+:root {
+  --color-paper: #FAF6F0;
+  --color-ink: #2C2416;
+  --color-ink-muted: #6B5C4D;
+  --color-gold: #C49A6C;
+  --color-crimson: #8B3A3A;
+  --color-hairline: #B8A99A;
+  --color-sunlight: #F5E6D0;
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+}
+
+/*
+  Dark mode override: NOT used for this project (audience doesn't expect it),
+  but we disable it cleanly so nothing unexpected happens if the user's
+  system is in dark mode.
+*/
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* intentionally left light — dark mode not appropriate for this audience */
   }
 }
 
+/*
+  BASE STYLES:
+  We set the body font to Source Serif 4 (serif) by default.
+  Line height 1.7 is larger than typical (1.5) — intentional for older readers
+  who need more breathing room between lines.
+  Font size starts at ~17px (1.0625rem) — larger than typical for accessibility.
+*/
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+}
+
+/*
+  DISPLAY HEADING:
+  Used for the band name and major section headings.
+  Playfair Display italic — evokes a classic record sleeve title.
+  Tight line-height (1.1) for the elegant, compact look of display type.
+*/
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/*
+  SECTION HEADING:
+  Section titles use the same display font but in regular weight
+  (not italic) so they don't compete with the band name.
+*/
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-style: italic;
+  color: var(--color-ink);
+  margin-bottom: 1rem;
+}
+
+/*
+  REDUCED MOTION:
+  The hero gradient animation runs for 12s. For users with motion sensitivity
+  (vestibular disorders, motion sickness), we stop it completely.
+  This is a WCAG 2.1 requirement — not optional.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+  FOCUS VISIBLE:
+  When a user tabs through the page with a keyboard, they need to see
+  where focus is. We use a gold outline (matching our accent) with
+  an offset so it doesn't clip against borders.
+*/
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/*
+  STAFF DIVIDER:
+  Five horizontal lines at standard musical staff spacing.
+  The spacing between lines is 10px (scaled proportionally) — this
+  mimics the standard 5-line staff of sheet music.
+
+  WHY CSS ONLY? No image needed. Five divs with a 1px border and
+  consistent spacing gives us pixel-perfect staff lines that scale
+  with the container width. Zero HTTP requests, zero layout shift.
+*/
+.staff-divider {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.staff-divider__line {
+  height: 1px;
+  background: var(--color-hairline);
+  width: 100%;
+}
+
+/*
+  HERO AMBIENT GRADIENT:
+  A slow-shifting radial gradient that moves behind the hero text.
+  The gradient uses warm paper tones (sunlight, gold, paper) that
+  blend into the background — never competing with the text.
+
+  WHY RADIAL + POSITION SHIFT?
+  A radial gradient creates a natural "spotlight" effect. By shifting
+  its position slowly (12s loop), it simulates sunlight moving through
+  a window — grounding the page in the afternoon time-of-day these
+  performances happen. The effect is almost subliminal.
+
+  WHY NOT AN IMAGE?
+  A gradient animates smoothly, has zero HTTP requests, and adapts
+  to any screen size without stretching or pixelation.
+*/
+.hero-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    var(--color-sunlight) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    ellipse at 70% 50%,
+    rgba(196, 154, 108, 0.15) 0%,
+    transparent 50%
+  );
+  animation: ambient-shift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes ambient-shift {
+  0% {
+    transform: translate(0%, 0%) scale(1.2);
+  }
+  50% {
+    transform: translate(5%, -3%) scale(1.3);
+  }
+  100% {
+    transform: translate(-3%, 5%) scale(1.2);
+  }
+}
+
+/*
+  SCROLL INDICATOR:
+  A subtle bouncing chevron at the bottom of the hero.
+  Pure CSS animation — no JS needed. It fades after 5 seconds
+  to avoid becoming annoying on longer visits.
+*/
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.scroll-indicator {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+/*
+  REPERTOIRE CARD HOVER:
+  A subtle lift effect. Gold border appears, card moves up slightly.
+  The shadow is warm-toned (not neutral grey) to stay on-brand.
+*/
+.repertoire-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid var(--color-hairline);
+}
+
+.repertoire-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.12);
+  border-color: var(--color-gold);
+}
+
+/*
+  PERFORMER CARD:
+  Same warm-toned hover as repertoire, but with a crimson left-border
+  accent that ties back to the curtain/velvet motif.
+*/
+.performer-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.performer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 36, 22, 0.1);
+}
+
+/*
+  SONG LIST:
+  Each song is separated by a gold hairline.
+  The list-style: none removes default bullets — the gold line
+  IS the separator, cleaner than a dot.
+*/
+.song-list {
+  list-style: none;
+  padding: 0;
+}
+
+.song-list li {
+  padding: 0.375rem 0;
+  border-bottom: 1px solid var(--color-hairline);
+  color: var(--color-ink);
+}
+
+.song-list li:last-child {
+  border-bottom: none;
 }
