@@ -244,3 +244,16 @@ h2 {
 .song-list li:last-child {
   border-bottom: none;
 }
+
+/*
+  TESTIMONIALS SECTION:
+  Full-width background image using performance.png (live concert shot).
+  The overlay sits between the background and the content.
+  Cards float over the background with a semi-transparent backdrop.
+*/
+.testimonials-section {
+  background-image: url('/images/performance.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

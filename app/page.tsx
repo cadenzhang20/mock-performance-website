@@ -144,6 +144,21 @@ const REPERTOIRE = {
   },
 } as const;
 
+const TESTIMONIALS = [
+  {
+    name: "Gary Maher",
+    text: "They are very Young and Good at music. We enjoy watching their Performance. Their performance is Impressive. They have a bright future in music because of their talent.",
+  },
+  {
+    name: "Barbara Rusland",
+    text: "They are so good. The piano Performance very impressive. I really enjoyed watching it. They performed with great passion and Confidence from start to finish.",
+  },
+  {
+    name: "Louis and Doreen",
+    text: "Enda and Caden are two very pleasant young entertainers. Always very well prepared, always interesting and informative, with visuals and some conversation.",
+  },
+] as const;
+
 export default function Home() {
   return (
     <main className="flex flex-col">
@@ -405,6 +420,53 @@ export default function Home() {
               </div>
             )
           )}
+        </div>
+      </section>
+
+      <StaffDivider />
+
+      {/* ============================================================
+          TESTIMONIALS SECTION
+          ============================================================
+
+          DESIGN CHOICES:
+          - performance.png as a full-width background image with warm overlay
+          - Three testimonial cards in a responsive grid
+          - Each card has a quote decoration and the person's name
+          - Cards have a semi-transparent backdrop for readability
+          - Section uses position: relative and overflow: hidden
+      */}
+      <section className="testimonials-section relative overflow-hidden px-6 py-16 md:py-24">
+        {/* Warm overlay on top of the performance.png background */}
+        <div
+          className="absolute inset-0 bg-paper/75 z-0"
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 max-w-5xl mx-auto w-full">
+          <h2 className="text-center mb-12">What Our Audience Says</h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="bg-white/60 rounded-lg p-6 md:p-8 border border-hairline"
+              >
+                <span
+                  className="text-5xl font-display leading-none text-gold opacity-40 block mb-2"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <p className="text-base text-ink leading-relaxed mb-4 italic">
+                  {testimonial.text}
+                </p>
+                <p className="text-sm font-body font-semibold text-ink-muted">
+                  &mdash; {testimonial.name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
