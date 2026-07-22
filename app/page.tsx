@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { StaffDivider } from "./components/StaffDivider";
 import { Typewriter } from "./components/Typewriter";
 
@@ -161,13 +162,17 @@ export default function Home() {
           - The scroll indicator is at the very bottom, below the fold
             on mobile, which is intentional — it draws the eye down
       */}
-      <section className="hero-glow relative min-h-[85vh] flex flex-col items-center justify-center px-6 py-32 md:py-40">
-        {/* Image placeholder area */}
-        <div className="text-6xl">hello</div>
-        <div className="mb-10 w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-hairline flex items-center justify-center bg-sunlight/30">
-          <span className="text-6xl md:text-7xl opacity-30" aria-hidden="true">
-            ♪
-          </span>
+      <section className="hero-background relative min-h-[85vh] flex flex-col items-center justify-center px-6 py-32 md:py-40">
+        {/* Circular portrait of the performers */}
+        <div className="relative mb-10 w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-hairline overflow-hidden shadow-lg">
+          <Image
+            src="/images/hero.jpg"
+            alt="Enda Du and Caden Zhang, the Bossa Boys, in performance attire"
+            width={288}
+            height={288}
+            className="object-cover w-full h-full"
+            priority
+          />
         </div>
 
         {/* Band name — the most important text on the page */}

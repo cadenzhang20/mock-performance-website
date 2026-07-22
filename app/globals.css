@@ -156,54 +156,27 @@ h2 {
 }
 
 /*
-  HERO AMBIENT GRADIENT:
-  A slow-shifting radial gradient that moves behind the hero text.
-  The gradient uses warm paper tones (sunlight, gold, paper) that
-  blend into the background — never competing with the text.
-
-  WHY RADIAL + POSITION SHIFT?
-  A radial gradient creates a natural "spotlight" effect. By shifting
-  its position slowly (12s loop), it simulates sunlight moving through
-  a window — grounding the page in the afternoon time-of-day these
-  performances happen. The effect is almost subliminal.
-
-  WHY NOT AN IMAGE?
-  A gradient animates smoothly, has zero HTTP requests, and adapts
-  to any screen size without stretching or pixelation.
+  HERO BACKGROUND IMAGE:
+  Full-width background image using hero.jpg (portrait of the performers).
+  The image is blurred slightly so it doesn't compete with text.
+  A warm overlay ensures text readability.
+  Replaces the previous ambient gradient animation.
 */
-.hero-glow {
+.hero-background {
   position: relative;
   overflow: hidden;
+  background-image: url('/images/hero.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.hero-glow::before {
+.hero-background::before {
   content: "";
   position: absolute;
-  inset: -50%;
-  background: radial-gradient(
-    ellipse at 30% 50%,
-    var(--color-sunlight) 0%,
-    transparent 50%
-  ),
-  radial-gradient(
-    ellipse at 70% 50%,
-    rgba(196, 154, 108, 0.15) 0%,
-    transparent 50%
-  );
-  animation: ambient-shift 12s ease-in-out infinite alternate;
+  inset: 0;
+  background: rgba(250, 246, 240, 0.75);
+  backdrop-filter: blur(3px);
   pointer-events: none;
-}
-
-@keyframes ambient-shift {
-  0% {
-    transform: translate(0%, 0%) scale(1.2);
-  }
-  50% {
-    transform: translate(5%, -3%) scale(1.3);
-  }
-  100% {
-    transform: translate(-3%, 5%) scale(1.2);
-  }
 }
 
 /*
