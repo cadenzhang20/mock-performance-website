@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================================
-   GOOD PREFIXES — GLOBAL STYLES
+   BOSSA BOYS — GLOBAL STYLES
    ============================================================
 
    COLOR SYSTEM:
@@ -105,9 +105,9 @@ h2 {
 
 /*
   REDUCED MOTION:
-  The hero gradient animation runs for 12s. For users with motion sensitivity
-  (vestibular disorders, motion sickness), we stop it completely.
-  This is a WCAG 2.1 requirement — not optional.
+  For users with motion sensitivity (vestibular disorders, motion sickness),
+  we stop all animations completely. This is a WCAG 2.1 requirement — not optional.
+  Currently applies to the scroll indicator bounce and any other CSS animations.
 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -158,7 +158,6 @@ h2 {
 /*
   HERO BACKGROUND IMAGE:
   Full-width background image using hero.jpg (portrait of the performers).
-  The image is blurred slightly so it doesn't compete with text.
   A warm overlay ensures text readability.
   Replaces the previous ambient gradient animation.
 */

@@ -3,7 +3,7 @@ import { StaffDivider } from "./components/StaffDivider";
 import { Typewriter } from "./components/Typewriter";
 
 /**
- * GOOD PREFIXES — INDEX PAGE
+ * BOSSA BOYS — INDEX PAGE
  * ==========================
  *
  * PAGE STRUCTURE:
