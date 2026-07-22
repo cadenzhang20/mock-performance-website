@@ -38,7 +38,7 @@
 }
 
 /*
-  Copy @theme tokens into :root so raw CSS (e.g. the staff-divider, hero-glow,
+  Copy @theme tokens into :root so raw CSS (e.g. the staff-divider, hero-background,
   and body styles) can reference them via var(--color-*).
 */
 :root {

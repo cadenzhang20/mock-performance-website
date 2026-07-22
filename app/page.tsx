@@ -152,13 +152,12 @@ export default function Home() {
           ============================================================
 
           DESIGN CHOICES:
-          - hero-glow class: the ambient CSS gradient animation (12s loop)
+          - hero-background class: CSS background image with gradient overlay
           - py-32 on mobile, py-40 on desktop: generous vertical space
             so the hero feels like an entrance, not a banner
           - The Typewriter cycles through "morning", "afternoon", "evening"
             to reflect the times of day they perform
-          - Image placeholder: a warm-toned box with a musical note,
-            ready to be replaced with a real photo
+          - Circular portrait with hero.jpg, sized w-56/w-72 responsive
           - The scroll indicator is at the very bottom, below the fold
             on mobile, which is intentional — it draws the eye down
       */}
