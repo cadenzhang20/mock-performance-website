@@ -163,6 +163,7 @@ export default function Home() {
       */}
       <section className="hero-glow relative min-h-[85vh] flex flex-col items-center justify-center px-6 py-32 md:py-40">
         {/* Image placeholder area */}
+        <div className="text-6xl">hello</div>
         <div className="mb-10 w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-hairline flex items-center justify-center bg-sunlight/30">
           <span className="text-6xl md:text-7xl opacity-30" aria-hidden="true">
             ♪
@@ -303,7 +304,7 @@ export default function Home() {
             </ul>
             <div className="border-t border-hairline pt-4">
               <p className="text-xs uppercase tracking-wider text-ink-muted mb-2 font-body">
-                Certifications
+                Awards & Certifications
               </p>
               <ul className="space-y-1 text-sm text-ink-muted">
                 <li>RCM 8 — Piano, Theory &amp; Clarinet</li>
@@ -328,7 +329,7 @@ export default function Home() {
             </ul>
             <div className="border-t border-hairline pt-4">
               <p className="text-xs uppercase tracking-wider text-ink-muted mb-2 font-body">
-                Certifications
+                Awards & Certifications
               </p>
               <ul className="space-y-1 text-sm text-ink-muted">
                 <li>RCM 9 — Piano</li>
