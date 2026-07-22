@@ -534,7 +534,7 @@ export default function Home() {
       */}
       <footer className="px-6 py-8 text-center text-sm text-ink-muted">
         <p>
-          &copy; {new Date().getFullYear()} Bossa Boys — Caden Zhang &amp;
+          © {new Date().getFullYear()} Bossa Boys — Caden Zhang &amp;
           Enda Du
         </p>
         <p className="mt-1 italic">
