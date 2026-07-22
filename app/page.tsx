@@ -250,21 +250,16 @@ export default function Home() {
       <section className="px-6 py-16 md:py-24 max-w-5xl mx-auto w-full">
         <h2 className="text-center mb-12">About Bossa Boys</h2>
 
-        <div className="grid md:grid-cols-[280px_1fr] gap-10 md:gap-14 items-start">
-          {/* Image placeholder */}
-          <div className="w-full aspect-3/4 rounded-lg border border-hairline bg-sunlight/30 flex items-center justify-center">
-            <span className="text-5xl opacity-20" aria-hidden="true">
-              ♫
-            </span>
-          </div>
-
+        
+        <div className="flex justify-center gap-10 md:gap-14 items-start">
           {/* About copy — verbatim from the spec revisions */}
-          <div className="space-y-5 max-w-prose">
+          <div className="max-w-prose text-center">
             <p>
               Bossa Boys is composed of Enda and Caden — two friends who met
               through school, bonded over a shared love of jazz, and found
               themselves with a purpose bigger than just playing music.
             </p>
+            <br/>
             <p>
               There&apos;s something remarkable about what a song can do. For someone
               living with dementia, a familiar melody can cut through the fog in a
@@ -274,12 +269,16 @@ export default function Home() {
               person still present underneath it all. That&apos;s not just music.
               That&apos;s something close to magic.
             </p>
+            <br/>
+
             <p>
               It&apos;s that belief that drives Bossa Boys. Enda and Caden have
               made it their mission to bring live jazz into retirement homes and
               care communities, not as background entertainment, but as a genuine
               act of connection.
             </p>
+            <br/>
+
             <p>
               The repertoire is drawn from the Great American Songbook: the songs
               that defined a generation, the ones people danced to, fell in love
