@@ -31,15 +31,15 @@ const sourceSerif = Source_Serif_4({
 /**
  * METADATA:
  *
- * Title includes "Good Prefixes" — this is what Google shows in search results
+ * Title includes "Bossa Boys" — this is what Google shows in search results
  * and browser tabs. The description is written for retirement home coordinators
  * who search for "jazz performance retirement home" or similar — it's SEO without
  * being spammy.
  */
 export const metadata: Metadata = {
-  title: "Good Prefixes — Live Jazz for Retirement Communities",
+  title: "Bossa Boys — Live Jazz for Retirement Communities",
   description:
-    "Good Prefixes brings the warmth of classic jazz, classical, and seasonal music directly into retirement homes and care communities. Book a performance by Caden Zhang and Enda Du.",
+    "Bossa Boys brings the warmth of classic jazz, classical, and seasonal music directly into retirement homes and care communities. Book a performance by Caden Zhang and Enda Du.",
 };
 
 export default function RootLayout({

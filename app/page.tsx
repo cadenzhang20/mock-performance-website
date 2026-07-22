@@ -15,7 +15,7 @@ import { Typewriter } from "./components/Typewriter";
  *
  * SECTION ORDER:
  * 1. Hero — band name, slogan with word rotation, image placeholder
- * 2. About — who Good Prefixes are and what they do
+ * 2. About — who Bossa Boys are and what they do
  * 3. Performers — individual bios for Enda and Caden
  * 4. Repertoire — full song list organized by genre
  * 5. Contact — booking CTA
@@ -172,7 +172,7 @@ export default function Home() {
 
         {/* Band name — the most important text on the page */}
         <h1 className="text-center font-display text-5xl md:text-7xl lg:text-8xl font-bold italic tracking-tight text-ink">
-          Good Prefixes
+          Bossa Boys
         </h1>
 
         {/* Slogan with rotating words — the Typewriter handles the animation */}
@@ -229,7 +229,7 @@ export default function Home() {
             which is the optimal reading width for body text
       */}
       <section className="px-6 py-16 md:py-24 max-w-5xl mx-auto w-full">
-        <h2 className="text-center mb-12">About Good Prefixes</h2>
+        <h2 className="text-center mb-12">About Bossa Boys</h2>
 
         <div className="grid md:grid-cols-[280px_1fr] gap-10 md:gap-14 items-start">
           {/* Image placeholder */}
@@ -242,7 +242,7 @@ export default function Home() {
           {/* About copy — verbatim from the spec revisions */}
           <div className="space-y-5 max-w-prose">
             <p>
-              Good Prefixes is composed of Enda and Caden — two friends who met
+              Bossa Boys is composed of Enda and Caden — two friends who met
               through school, bonded over a shared love of jazz, and found
               themselves with a purpose bigger than just playing music.
             </p>
@@ -256,7 +256,7 @@ export default function Home() {
               That&apos;s something close to magic.
             </p>
             <p>
-              It&apos;s that belief that drives Good Prefixes. Enda and Caden have
+              It&apos;s that belief that drives Bossa Boys. Enda and Caden have
               made it their mission to bring live jazz into retirement homes and
               care communities, not as background entertainment, but as a genuine
               act of connection.
@@ -423,7 +423,7 @@ export default function Home() {
             prefer to call
       */}
       <section className="px-6 py-16 md:py-24 max-w-2xl mx-auto w-full text-center">
-        <h2 className="mb-6">Book Good Prefixes</h2>
+        <h2 className="mb-6">Book Bossa Boys</h2>
         <p className="text-ink-muted mb-8 max-w-lg mx-auto">
           We&apos;d love to bring live music to your community. Call or email to
           arrange a complimentary meet-and-greet — no obligation, just a
@@ -468,7 +468,7 @@ export default function Home() {
       */}
       <footer className="px-6 py-8 text-center text-sm text-ink-muted">
         <p>
-          &copy; {new Date().getFullYear()} Good Prefixes — Caden Zhang &amp;
+          &copy; {new Date().getFullYear()} Bossa Boys — Caden Zhang &amp;
           Enda Du
         </p>
         <p className="mt-1 italic">
