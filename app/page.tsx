@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { StaffDivider } from "./components/StaffDivider";
 import { Typewriter } from "./components/Typewriter";
+import CustomSvgStave from "./components/CoolStaffDivider";
 
 /**
  * BOSSA BOYS — INDEX PAGE
@@ -196,7 +197,7 @@ export default function Home() {
 
         {/* Slogan with rotating words — the Typewriter handles the animation */}
         <p className="mt-6 text-center text-2xl md:text-3xl lg:text-4xl font-display italic text-ink-muted">
-          We&apos;ll bring a good start to your{" "}
+          We&apos;ll bring a good start to your{" "}<br/>
           <Typewriter
             words={["morning", "afternoon", "evening"]}
             typeSpeed={120}
@@ -232,7 +233,7 @@ export default function Home() {
         </div>
       </section>
 
-      <StaffDivider />
+      <CustomSvgStave noteKey="about" />
 
       {/* ============================================================
           ABOUT SECTION
@@ -247,7 +248,7 @@ export default function Home() {
           - max-w-3xl constrains line length to ~65 characters,
             which is the optimal reading width for body text
       */}
-      <section className="px-6 py-16 md:py-24 max-w-5xl mx-auto w-full">
+      <section className="px-6 py-5 max-w-5xl mx-auto w-full">
         <h2 className="text-center mb-12">About Bossa Boys</h2>
 
         
@@ -290,7 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <StaffDivider />
+      <CustomSvgStave noteKey="performers" />
 
       {/* ============================================================
           PERFORMERS SECTION
@@ -359,7 +360,7 @@ export default function Home() {
         </div>
       </section>
 
-      <StaffDivider />
+      <CustomSvgStave noteKey="repertoire" />
 
       {/* ============================================================
           REPERTOIRE SECTION
@@ -422,7 +423,7 @@ export default function Home() {
         </div>
       </section>
 
-      <StaffDivider />
+      <CustomSvgStave noteKey="testimonials" />
 
       {/* ============================================================
           TESTIMONIALS SECTION
@@ -469,7 +470,7 @@ export default function Home() {
         </div>
       </section>
 
-      <StaffDivider />
+      <CustomSvgStave noteKey="contact" />
 
       {/* ============================================================
           CONTACT / CTA SECTION
@@ -520,7 +521,8 @@ export default function Home() {
         </div>
       </section>
 
-      <StaffDivider />
+      {/* <StaffDivider /> */}
+      <CustomSvgStave noteKey="footer" />
 
       {/* ============================================================
           FOOTER
