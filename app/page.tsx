@@ -2,6 +2,7 @@ import Image from "next/image";
 import { StaffDivider } from "./components/StaffDivider";
 import { Typewriter } from "./components/Typewriter";
 import CustomSvgStave from "./components/CoolStaffDivider";
+import ScrollingSongList from "./components/ClientScrollAnimator";
 
 /**
  * BOSSA BOYS — INDEX PAGE
@@ -149,14 +150,17 @@ const TESTIMONIALS = [
   {
     name: "Gary Maher",
     text: "They are very Young and Good at music. We enjoy watching their Performance. Their performance is Impressive. They have a bright future in music because of their talent.",
+    role: "Resident of The Village of Glendale Crossing",
   },
   {
     name: "Barbara Rusland",
     text: "They are so good. The piano Performance very impressive. I really enjoyed watching it. They performed with great passion and Confidence from start to finish.",
+    role: "Resident of The Village of Glendale Crossing",
   },
   {
     name: "Louis and Doreen",
     text: "Enda and Caden are two very pleasant young entertainers. Always very well prepared, always interesting and informative, with visuals and some conversation.",
+    role: "Residents of The Village of Glendale Crossing",
   },
 ] as const;
 
@@ -377,11 +381,10 @@ export default function Home() {
             so coordinators know the breadth at a glance
           - max-w-6xl keeps the three columns from spreading too wide
       */}
-      <section className="px-6 py-16 md:py-24 max-w-6xl mx-auto w-full">
+      <section className="px-6 py-8 max-w-6xl mx-auto w-full">
         <h2 className="text-center mb-4">Our Repertoire</h2>
         <p className="text-center text-ink-muted mb-12 max-w-2xl mx-auto">
-          Drawn from the Great American Songbook and beyond — the songs that
-          defined a generation.
+          Below are just some of the songs that the Bossa Boys have performed. We&apos;re happy to tailor our setlist to your community&apos;s preferences, so if you have any specific songs in mind, just let us know!
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -405,13 +408,7 @@ export default function Home() {
                 </div>
 
                 {/* Song list — scrollable for long lists */}
-                <div className="flex-1 max-h-100 overflow-y-auto pr-2">
-                  <ul className="song-list text-base">
-                    {category.songs.map((song) => (
-                      <li key={song}>{song}</li>
-                    ))}
-                  </ul>
-                </div>
+                <ScrollingSongList songs={category.songs} speed={50} />
 
                 {/* Song count */}
                 <p className="mt-4 text-xs text-ink-muted italic text-center border-t border-hairline pt-3">
@@ -464,6 +461,9 @@ export default function Home() {
                 <p className="text-sm font-body font-semibold text-ink-muted">
                   &mdash; {testimonial.name}
                 </p>
+                <p className="text-xs font-body text-ink-muted">
+                  {testimonial.role}
+                </p>
               </div>
             ))}
           </div>
@@ -488,7 +488,7 @@ export default function Home() {
           - The phone number is prominent — older staff members may
             prefer to call
       */}
-      <section className="px-6 py-16 md:py-24 max-w-2xl mx-auto w-full text-center">
+      <section className="px-6 py-8 max-w-2xl mx-auto w-full text-center">
         <h2 className="mb-6">Book Bossa Boys</h2>
         <p className="text-ink-muted mb-8 max-w-lg mx-auto">
           We&apos;d love to bring live music to your community. Call or email to
@@ -512,7 +512,7 @@ export default function Home() {
               Send an Email
             </a>
             <a
-              href="tel:+1234567890"
+              href="tel:+15197048217"
               className="inline-block px-6 py-3 border-2 border-gold text-ink rounded-lg font-body font-semibold hover:bg-gold/10 transition-colors"
             >
               Call Us
