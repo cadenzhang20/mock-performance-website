@@ -453,7 +453,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:goodprefixes@example.com"
+              href="mailto:bossaboys.connect@gmail.com"
               className="inline-block px-6 py-3 bg-crimson text-paper rounded-lg font-body font-semibold hover:bg-crimson/90 transition-colors"
             >
               Send an Email
