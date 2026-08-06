@@ -215,7 +215,7 @@ h2 {
 
 .repertoire-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.12);
+  /* box-shadow: 0 8px 24px rgba(44, 36, 22, 0.12); */
   border-color: var(--color-gold);
 }
 
@@ -257,11 +257,11 @@ h2 {
 
 @keyframes scrollUp {
     0% {
-        transform: translateY(0);
+        transform: translateY(calc(-50% - 8px));
     }
     100% {
-        /* Moves up by exactly half the container height minus half the gap */
-        transform: translateY(calc(-50% - 8px)); 
+        /* Moves down by exactly half the container height minus half the gap */
+        transform: translateY(0);
     }
 }
 
