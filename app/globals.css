@@ -26,13 +26,13 @@
   /* These tokens are used by both Tailwind utilities (text-ink, bg-paper, etc.)
      and raw CSS (var(--color-paper)). The hex values live here — :root
      then copies them out so raw CSS references resolve. */
-  --color-paper: #FAF6F0;
-  --color-ink: #2C2416;
-  --color-ink-muted: #6B5C4D;
-  --color-gold: #C49A6C;
-  --color-crimson: #8B3A3A;
-  --color-hairline: #B8A99A;
-  --color-sunlight: #F5E6D0;
+  --color-paper: #faf6f0;
+  --color-ink: #2c2416;
+  --color-ink-muted: #6b5c4d;
+  --color-gold: #c49a6c;
+  --color-crimson: #8b3a3a;
+  --color-hairline: #b8a99a;
+  --color-sunlight: #f5e6d0;
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
 }
@@ -42,13 +42,13 @@
   and body styles) can reference them via var(--color-*).
 */
 :root {
-  --color-paper: #FAF6F0;
-  --color-ink: #2C2416;
-  --color-ink-muted: #6B5C4D;
-  --color-gold: #C49A6C;
-  --color-crimson: #8B3A3A;
-  --color-hairline: #B8A99A;
-  --color-sunlight: #F5E6D0;
+  --color-paper: #faf6f0;
+  --color-ink: #2c2416;
+  --color-ink-muted: #6b5c4d;
+  --color-gold: #c49a6c;
+  --color-crimson: #8b3a3a;
+  --color-hairline: #b8a99a;
+  --color-sunlight: #f5e6d0;
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
 }
@@ -85,7 +85,9 @@ body {
   Playfair Display italic — evokes a classic record sleeve title.
   Tight line-height (1.1) for the elegant, compact look of display type.
 */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.15;
@@ -110,7 +112,9 @@ h2 {
   Currently applies to the scroll indicator bounce and any other CSS animations.
 */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -159,23 +163,29 @@ h2 {
 
 /*
   HERO BACKGROUND IMAGE:
-  Full-width background image using hero.jpg (portrait of the performers).
+  Full-width background image using hero.webp (portrait of the performers).
   A warm overlay ensures text readability.
   Replaces the previous ambient gradient animation.
 */
 .hero-background {
   position: relative;
   overflow: hidden;
-  background-image: url('/images/hero.jpg');
+  background-image: url("/images/hero.webp");
   background-size: cover;
-  background-position: center;
+  background-position: center -150px;
+}
+
+@media (max-width: 1100px) {
+  .hero-background {
+    background-position: center 0px;
+  }
 }
 
 .hero-background::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(250, 246, 240, 0.88);
+  background: rgba(250, 246, 240, 0.8);
   /* background: rgba(250, 246, 240, 0); */
   pointer-events: none;
 }
@@ -195,8 +205,13 @@ h2 {
   to avoid becoming annoying on longer visits.
 */
 @keyframes bounce-down {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
 }
 
 .scroll-indicator {
@@ -209,7 +224,10 @@ h2 {
   The shadow is warm-toned (not neutral grey) to stay on-brand.
 */
 .repertoire-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   border: 1px solid var(--color-hairline);
 }
 
@@ -225,7 +243,9 @@ h2 {
   accent that ties back to the curtain/velvet motif.
 */
 .performer-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .performer-card:hover {
@@ -248,7 +268,6 @@ h2 {
   padding: 0.375rem 0;
   border-bottom: 1px solid var(--color-hairline);
   color: var(--color-ink);
-
 }
 
 .song-list li:last-child {
@@ -256,18 +275,18 @@ h2 {
 }
 
 @keyframes scrollUp {
-    0% {
-        transform: translateY(calc(-50% - 8px));
-    }
-    100% {
-        /* Moves down by exactly half the container height minus half the gap */
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(calc(-50% - 8px));
+  }
+  100% {
+    /* Moves down by exactly half the container height minus half the gap */
+    transform: translateY(0);
+  }
 }
 
 /* Apply the custom animation to a utility class */
 .animate-scroll-up {
-    animation: scrollUp var(--scroll-duration, 10s) linear infinite;
+  animation: scrollUp var(--scroll-duration, 10s) linear infinite;
 }
 
 /*
@@ -277,9 +296,9 @@ h2 {
   Cards float over the background with a semi-transparent backdrop.
 */
 .testimonials-section {
-  background-image: url('/images/performance.png');
+  background-image: url("/images/performance.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  margin: 2rem 0
+  margin: 2rem 0;
 }

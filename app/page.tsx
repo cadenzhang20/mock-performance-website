@@ -101,7 +101,7 @@ export default function Home() {
             so the hero feels like an entrance, not a banner
           - The Typewriter cycles through "morning", "afternoon", "evening"
             to reflect the times of day they perform
-          - Circular portrait with hero.jpg, sized w-56/w-72 responsive
+          - Circular portrait with hero.webp, sized w-56/w-72 responsive
           - The scroll indicator is at the very bottom, below the fold
             on mobile, which is intentional — it draws the eye down
       */}
@@ -109,7 +109,7 @@ export default function Home() {
         {/* Circular portrait of the performers */}
         <div className="relative mb-10 w-56 h-56 md:w-72 md:h-72 rounded-full border-2 border-hairline overflow-hidden shadow-lg">
           <Image
-            src="/images/hero.jpg"
+            src="/images/hero.webp"
             alt="Enda Du and Caden Zhang, the Bossa Boys, in performance attire"
             width={288}
             height={288}
